@@ -1,0 +1,17 @@
+{
+  "name": "usrbinenv",
+  "version": "0.0.0",
+  "description": "/usr/bin/env written in Javascript",
+  "main": "server.js",
+  "bin": {
+    "env": "server.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "env"
+  ],
+  "author": "Jesús Leganés Combarro 'piranna' <piranna@gmail.com>",
+  "license": "ISC"
+}
