@@ -38,6 +38,7 @@ for(var arg; arg = argv[0]; argv.shift())
     break;
 
     case '-u':
+    case '--unset':
     {
       argv.shift()
       unset(argv[0])
@@ -45,9 +46,9 @@ for(var arg; arg = argv[0]; argv.shift())
     break;
 
     default:
-      if(arg.substr(0,7) == '--unset')
+      if(arg.substr(0,8) == '--unset=')
       {
-        unset(arg.substr(7))
+        unset(arg.substr(8))
         break
       }
 
@@ -61,7 +62,7 @@ for(var arg; arg = argv[0]; argv.shift())
 if(ignoreEnvironment)
   process.env = env = {}
 
-for(var arg; arg = argv[0]; argv.shift())
+while(var arg = argv[0])
 {
   arg = arg.split('=')
   if(arg.length < 2) break;
@@ -70,6 +71,8 @@ for(var arg; arg = argv[0]; argv.shift())
   var value = arg.join('=')
 
   env[key] = value;
+
+  argv.shift()
 }
 
 // Exec command or show environment variables
