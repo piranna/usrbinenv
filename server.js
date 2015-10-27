@@ -62,7 +62,8 @@ for(var arg; arg = argv[0]; argv.shift())
 if(ignoreEnvironment)
   process.env = env = {}
 
-while(var arg = argv[0])
+var arg
+while(arg = argv[0])
 {
   arg = arg.split('=')
   if(arg.length < 2) break;
