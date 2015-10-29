@@ -20,8 +20,10 @@ function unset(key)
 var argv = process.argv.slice(2)
 
 // Options
-for(var arg; arg = argv[0]; argv.shift())
+for(; argv.length; argv.shift())
 {
+  var arg = argv[0]
+
   if(arg[0] != '-') break;
 
   switch(arg[0])
@@ -62,18 +64,16 @@ for(var arg; arg = argv[0]; argv.shift())
 if(ignoreEnvironment)
   process.env = env = {}
 
-var arg
-while(arg = argv[0])
+for(; argv.length; argv.shift())
 {
-  arg = arg.split('=')
+  var arg = argv[0].split('=')
+
   if(arg.length < 2) break;
 
-  var key = arg.shift()
+  var key   = arg.shift()
   var value = arg.join('=')
 
   env[key] = value;
-
-  argv.shift()
 }
 
 // Exec command or show environment variables
