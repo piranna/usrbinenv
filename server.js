@@ -4,6 +4,8 @@ var ignoreEnvironment = false
 var endLinesWithNull = false
 var env = process.env
 
+const NODEJS_BIN = 'node'
+
 
 function unset(key)
 {
@@ -83,26 +85,19 @@ if(command)
 {
   command = command.replace(/\s+$/, '')
 
-  if(command === 'node')
+  if(command === NODEJS_BIN)
   {
     // We are trying to execute a Node.js script, re-use the current instance.
     // This require that the Node.js script don't use any execution trick like
     // checking "!module.parent" or "require.main === module". If you want your
     // package to work both as a library and an executable, define it in two
     // diferent scripts and use package.json "main" and "bin" entries.
-    process.argv = [command].concat(argv)
+    process.argv = [NODEJS_BIN].concat(argv)
 
     return require(argv[0])
   }
 
-  // [ToDo] Change for https://github.com/jprichardson/node-kexec
-  require('child_process')
-  .spawn(command, argv, {stdio: 'inherit'})
-  .on('error',function(error)
-  {
-    console.error(error)
-    console.error(command, argv, env)
-  })
+  require('kexec')(command, argv)
 }
 else
 {
