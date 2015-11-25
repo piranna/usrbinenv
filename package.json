@@ -1,6 +1,6 @@
 {
   "name": "usrbinenv",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "/usr/bin/env written in Javascript",
   "main": "server.js",
   "bin": {
@@ -15,6 +15,6 @@
   "author": "Jesús Leganés Combarro 'piranna' <piranna@gmail.com>",
   "license": "ISC",
   "dependencies": {
-    "kexec": "piranna/node-kexec#patch-1"
+    "kexec": "^2.0.0"
   }
 }
