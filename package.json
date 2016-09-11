@@ -15,6 +15,6 @@
   "author": "Jesús Leganés Combarro 'piranna' <piranna@gmail.com>",
   "license": "ISC",
   "dependencies": {
-    "kexec": "^2.0.0"
+    "kexec": "^3.0.0"
   }
 }
