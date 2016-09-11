@@ -1,6 +1,6 @@
 {
   "name": "usrbinenv",
-  "version": "0.0.3",
+  "version": "0.1.0",
   "description": "/usr/bin/env written in Javascript",
   "main": "server.js",
   "bin": {
